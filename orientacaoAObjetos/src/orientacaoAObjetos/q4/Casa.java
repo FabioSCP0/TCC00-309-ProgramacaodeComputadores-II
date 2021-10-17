@@ -1,4 +1,4 @@
-package orientacaoAObjetos.q3;
+package orientacaoAObjetos.q4;
 
 public class Casa extends Imovel{
 	Porta porta1;
