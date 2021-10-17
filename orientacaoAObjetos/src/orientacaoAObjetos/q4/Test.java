@@ -1,4 +1,4 @@
-package orientacaoAObjetos.q3;
+package orientacaoAObjetos.q4;
 
 public class Test {
 	public static void main(String[] args) {
