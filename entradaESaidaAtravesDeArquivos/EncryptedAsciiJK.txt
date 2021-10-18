@@ -1,0 +1,23 @@
+Origin > 70 -> Destiny: 197
+Origin > 97 -> Destiny: 224
+Origin > 98 -> Destiny: 225
+Origin > 105 -> Destiny: 232
+Origin > 111 -> Destiny: 238
+Origin > 32 -> Destiny: 159
+Origin > 83 -> Destiny: 210
+Origin > 67 -> Destiny: 194
+Origin > 80 -> Destiny: 207
+Origin > 48 -> Destiny: 175
+Origin > 13 -> Destiny: 140
+Origin > 10 -> Destiny: 137
+Origin > 67 -> Destiny: 194
+Origin > 97 -> Destiny: 224
+Origin > 114 -> Destiny: 241
+Origin > 108 -> Destiny: 235
+Origin > 111 -> Destiny: 238
+Origin > 115 -> Destiny: 242
+Origin > 32 -> Destiny: 159
+Origin > 13 -> Destiny: 140
+Origin > 10 -> Destiny: 137
+
+Result > ÅàáèîÒÂÏ¯Âàñëîò 
