@@ -16,97 +16,31 @@ public class Bank {
 	}
 	
 	public String delAccounts(String number) {
-		if(!accounts.isEmpty()) {
-			for(BankAccount search : accounts) {
-				if(search.getNumber().equalsIgnoreCase(number)) {
-					accounts.remove(search);
-					return "sucess";
-				}
-			}
-			return "account not found";
-		}else {
-			return "There is no accounts in bank";
-		}
+		return BankStaticMethods.delAccounts(number, accounts);
 	}
 	
-	public void addTransaction(BankAccount account, Transaction transaction) {
-		account.addTransaction(transaction);				
-		if(transaction instanceof Credit) {
-			transaction.addCredit();
-		}else {
-			transaction.addDebit();
-		}
+	public boolean addTransaction(String numberAccount, String operation, String description, double value) {
+		return BankStaticMethods.addTransaction(numberAccount, operation, description, value, accounts);
 	}
 	
-	public void addTransaction(String numberAccount, String operation, String description, double value) {
-		for(BankAccount search : accounts) {
-			if(search.getNumber().equalsIgnoreCase(numberAccount)) {
-				if(operation.equalsIgnoreCase("Debit")) {
-					this.addTransaction(search, new Debit(description,value));
-				}else {
-					this.addTransaction(search,new Credit(description, value));
-				}
-			}
-		}
+	public String balance(String number) {
+		return BankStaticMethods.balance(number, accounts);
 	}
 	
-	public double balance(String number) {
-		double balance;
-		
-		for(BankAccount search : accounts) {
-			if(search.getNumber().equalsIgnoreCase(number)) {
-				balance = search.getBalance();
-				return balance;
-			}
-		}
-		return balance=0;
+	public String limit(String number) {
+		return BankStaticMethods.limit(number, accounts);
 	}
 	
-	public double limit(String number) {
-		double limit = Double.MAX_VALUE;
-		
-		for(BankAccount search : accounts) {
-			if(search.getNumber().equalsIgnoreCase(number)) {
-				limit = search.getLimit();
-				return limit;
-			};
-		}
-		return limit;
+	public boolean transfer(String accountOrigin, String accountDestiny, double value) {
+		return BankStaticMethods.transfer(accountOrigin, accountDestiny, value, accounts);
 	}
 	
-	public void transfer(String accountOrigin, String accountDestiny, double value) {
-		for(BankAccount search : accounts) {
-			if(search.getNumber().equalsIgnoreCase(accountOrigin)) {
-				if((search.getBalance() + search.getLimit()) >= value) {
-					this.addTransaction(accountOrigin, "Debit", "Bank Transfer", value);
-					this.addTransaction(accountDestiny, "Credit", "Bank Transfer", value);
-				}
-			}
-		}
+	public boolean withdraw(String number, double value) {
+		return BankStaticMethods.withdraw(number, value, accounts);
 	}
 	
-	public void withdraw(String number, double value) {
-		for(BankAccount search : accounts) {
-			if(search.getNumber().equalsIgnoreCase(number)) {
-				if((search.getBalance() + search.getLimit()) >= value) {
-					this.addTransaction(number, "Debit", "Bank Withdraw", value);
-				
-				}
-			}
-		}
+	public String statement(String number) {
+		return BankStaticMethods.statement(number, accounts);
 	}
-	
-	public void statement(String number) {
-		for(BankAccount search : accounts) {
-			if(search.getNumber().equalsIgnoreCase(number)) {
-				statement(search.transactions);
-			}
-		}
-	}
-	public void statement(List<Transaction> transaction) {
-			System.out.println("Transactions that are on this account is: ");
-		for (Transaction search : transaction) {
-			System.out.println(search.getDescription() +" - " + search.getValue());
-		}
-	}
+
 }

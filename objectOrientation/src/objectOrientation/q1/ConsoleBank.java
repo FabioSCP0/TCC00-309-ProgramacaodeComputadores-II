@@ -54,7 +54,7 @@ public class ConsoleBank {
 					//close a bank account
 					System.out.println("Enter account number: ");
 					number = entry.next();
-					b1.delAccounts(number);
+					System.out.println(b1.delAccounts(number));
 					break;
 					
 				case 3:
@@ -63,12 +63,15 @@ public class ConsoleBank {
 					number = entry.next();
 					System.out.println("Inform the value: ");
 					balance = entry.nextDouble();
-					b1.withdraw(number, balance);
-					if(b1.balance(number)!=Double.MAX_VALUE) {
-						System.out.println("Your balance is " + b1.balance(number));
-						System.out.println("Your limit is " + b1.limit(number));
-					}else System.out.println("Bank account not found");
+					if(b1.withdraw(number, balance)) {
+						System.out.println("Successful Withdrawal");
+						System.out.println(b1.balance(number));
+						System.out.println(b1.limit(number));
+					}else {
+						System.out.println("Withdrawal not performed");
+					}
 
+					
 					break;
 					
 				case 4:
@@ -79,7 +82,9 @@ public class ConsoleBank {
 					description = entry.next();
 					System.out.println("Inform the value: ");
 					balance = entry.nextDouble();
-					b1.addTransaction(number, "Credit", description, balance);
+					if(b1.addTransaction(number, "Credit", description, balance)) {
+						System.out.println("Deposit made successfully");
+					}else System.out.println("Bank account not found");
 					break;
 					
 				case 5:
@@ -90,16 +95,17 @@ public class ConsoleBank {
 					description = entry.next();
 					System.out.println("Inform the value: ");
 					balance = entry.nextDouble();
-					b1.addTransaction(number, "Debit", description, balance);
+					if(b1.addTransaction(number, "Debit", description, balance)){
+						System.out.println("Amount debited from the account successfully");
+					}else System.out.println("Bank account not found");
+					
 					break;
 					
 				case 6:
 					//Balance and statement issuance
 					System.out.println("Enter origin account number: ");
 					number = entry.next();
-					System.out.println("Your balance is " + b1.balance(number));
-					System.out.println("Your limit is " + b1.limit(number));
-					b1.statement(number);
+					System.out.println(b1.statement(number));
 					break;
 					
 				case 7:
@@ -110,7 +116,9 @@ public class ConsoleBank {
 					numberTwo = entry.next();
 					System.out.println("Inform the value: ");
 					balance = entry.nextDouble();
-					b1.transfer(number, numberTwo, balance);
+					if(b1.transfer(number, numberTwo, balance)) {
+						System.out.println("Successful transfer");
+					}else System.out.println("Bank account not found");
 					break;
 			}
 		}
