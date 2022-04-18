@@ -1,0 +1,11 @@
+package desafio1;
+
+public class ClienteTeste {
+	public static void main(String[] args) {
+		
+		Cliente c1 = new Cliente();
+		Compra compra1 = new Compra();
+		Produto p1 = new Produto("Caneta",2);
+		
+	}
+}

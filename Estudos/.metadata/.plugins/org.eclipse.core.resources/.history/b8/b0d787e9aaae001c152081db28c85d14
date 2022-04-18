@@ -1,0 +1,17 @@
+package desafio1;
+
+import java.util.*;
+
+public class Cliente {
+	String nome;
+	final List<Compra> compras = new ArrayList<>();
+	
+	public double obterValorTotal() {
+		return 1.0;
+	}
+	
+	void adicionarCompras(Compra compra){
+		this.compras.add(compra);
+		compra.cliente = this;
+	}
+}

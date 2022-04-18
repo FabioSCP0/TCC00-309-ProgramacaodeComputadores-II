@@ -1,0 +1,6 @@
+package desafio1;
+
+public class Item {
+	double qtde;
+	Produto produto;
+}

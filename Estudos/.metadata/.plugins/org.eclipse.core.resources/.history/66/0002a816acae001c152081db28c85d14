@@ -1,0 +1,6 @@
+package desafio1;
+
+public class Produto {
+	double preco;
+	String nome;
+}
